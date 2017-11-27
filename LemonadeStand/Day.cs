@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 namespace LemonadeStand
 {
     class Day
-    {
-        public int getDay()
+    {   public int CurrentDay = 0;
+        public void IncrementDay()
         {
-            for (int i = 0; i < 8; i++)
-            {
-                return i;
-            }       
+            CurrentDay++;
         }
+        public int GetDay()
+        {
+            return CurrentDay;
+        }
+    
     }
 }

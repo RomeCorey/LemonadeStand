@@ -8,5 +8,12 @@ namespace LemonadeStand
 {
     class Store
     {
+        public double lemons = .10;
+        public double sugar = .08;
+        public double ice = .01;
+        public double cups = .04;
+
+
+       
     }
 }
