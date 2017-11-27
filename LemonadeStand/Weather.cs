@@ -8,8 +8,6 @@ namespace LemonadeStand
 {
     class Weather
     {
-        public enum TempChoice { Fifties, Sixties, Seventies, Eighties, Nineties, }
-
         Random random = new Random();
 
         public string getWeather()
