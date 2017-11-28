@@ -8,5 +8,12 @@ namespace LemonadeStand
 {
     class Player
     {
+        public void PurchaseLemons()
+        {
+            Store.LemonInput()
+                {
+
+            }
+        }
     }
 }
