@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace LemonadeStand
 {
     class Player
-    {
-        public void PurchaseLemons()
-        {
-            
+    {       
+        public Wallet wallet = new Wallet();
+        public Inventory inventory = new Inventory(); 
          
-        }
+        
     }
 }
