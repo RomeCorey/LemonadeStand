@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Lemon
     {
-        private double LemonCost = .02;
+        private double LemonCost = .08;
         private string LemonName;
 
         public double GetLemonCost()
