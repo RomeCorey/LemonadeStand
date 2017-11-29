@@ -24,7 +24,7 @@ namespace LemonadeStand
             }
             if (number == 3)
             {
-                return "Cloudy";
+                return "Cloudy"; 
             }
             if (number == 4)
             {

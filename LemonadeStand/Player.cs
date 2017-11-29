@@ -10,10 +10,8 @@ namespace LemonadeStand
     {
         public void PurchaseLemons()
         {
-            Store.LemonInput()
-                {
-
-            }
+            
+         
         }
     }
 }
