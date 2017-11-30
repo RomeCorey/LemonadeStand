@@ -28,10 +28,10 @@ namespace LemonadeStand
         {
             if (!Bankrupt)
             {
-                Money = ItemCost - Money;                
-                return Money;
+                Money = ItemCost - Money;  
             }
-           
+            return Money;
+
         }
     }
 }

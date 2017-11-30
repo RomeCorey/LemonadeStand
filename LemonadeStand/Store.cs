@@ -11,10 +11,9 @@ namespace LemonadeStand
         
         public string BuyChoice;
         public int UserLemonQuantity;
-        public double LemonFinalPrice;
-        public double IceBought;
-        public double CupsBought;
-        public double SugarBought;
+        public int UserCupQuantity;
+        public int UserIceQuantity;
+        public int UserSugarQuantity;        
         public double ItemCost;
 
 
@@ -70,13 +69,84 @@ namespace LemonadeStand
             return ItemCost;
         }
 
-        public double PayForLemons(Player player)
+        public void PayForLemons(Player player)
         {
             player.wallet.CheckWallet(ItemCost);
-
+            player.wallet.BuyItem();
         }
-        
-        
+
+
+
+
+        public int GetCupQuantity()
+        {
+            Console.WriteLine("How many cups would you like to buy?");
+            string UserInput = Console.ReadLine();
+            int UserCupQuantity = Int32.Parse(UserInput);
+            return UserCupQuantity;
+        }
+
+        public double GetCupPurchasePrice()
+        {
+            Cups cup = new Cups();
+            ItemCost = cup.GetCupCost() * UserCupQuantity;
+            return ItemCost;
+        }
+
+        public void PayForCups(Player player)
+        {
+            player.wallet.CheckWallet(ItemCost);
+            player.wallet.BuyItem();
+        }
+
+
+
+
+        public int GetIceQuantity()
+        {
+            Console.WriteLine("How many cups would you like to buy?");
+            string UserInput = Console.ReadLine();
+            int UserIceQuantity = Int32.Parse(UserInput);
+            return UserIceQuantity;
+        }
+
+        public double GetIcePurchasePrice()
+        {
+            Ice ice = new Ice();
+            ItemCost = ice.GetIceCost() * UserIceQuantity;
+            return ItemCost;
+        }
+
+        public void PayForIce(Player player)
+        {
+            player.wallet.CheckWallet(ItemCost);
+            player.wallet.BuyItem();
+        }
+
+
+
+        public int GetSugarQuantity()
+        {
+            Console.WriteLine("How many cups would you like to buy?");
+            string UserInput = Console.ReadLine();
+            int UserSugarQuantity = Int32.Parse(UserInput);
+            return UserSugarQuantity;
+        }
+
+        public double GetSugarPurchasePrice()
+        {
+            Sugar sugar = new Sugar();
+            ItemCost = sugar.GetSugarCost() * UserSugarQuantity;
+            return ItemCost;
+        }
+
+        public void PayForSugar(Player player)
+        {
+            player.wallet.CheckWallet(ItemCost);
+            player.wallet.BuyItem();
+        }
+
+
 
     }
 }
