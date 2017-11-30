@@ -10,11 +10,8 @@ namespace LemonadeStand
     {   public int CurrentDay = 0;
         List<Customer> customers = new List<Customer>();
         Random rnd = new Random();
-
-        public void IncrementDay()
-        {
-            CurrentDay++;
-        }
+        Weather weather = new Weather();
+        
         public int GetDay()
         {
             return CurrentDay;
@@ -26,9 +23,56 @@ namespace LemonadeStand
             {
                 Customer customer = new Customer();
                 customer.percentChanceToBuy = rnd.Next(40, 61);
-                customers.Add(customer);
-            }
+                customers.Add(customer); 
+            }     
         }
-    
+
+        public void WeatherAffect()
+        {
+
+            string weatherinfo = weather.GetWeather();
+
+            if (weatherinfo == "Rain")
+            {
+                
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy =- 10;                    
+                }
+            }
+            else if (weatherinfo == "Overcast")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy =- 6;
+                }
+            }
+            else if (weatherinfo == "Cloudy")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy =- 1;
+                }
+            }
+            if (weatherinfo == "Sunny")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy =+ 10;
+                }
+            }
+
+
+
+
+
+
+        }
+
+
+
     }
 }

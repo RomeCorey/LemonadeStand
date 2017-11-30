@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         Random random = new Random();
 
-        public string getWeather()
+        public string GetWeather()
         {
 
             int number = random.Next(1, 5);
@@ -31,37 +31,6 @@ namespace LemonadeStand
                 return "Sunny";
             }
             return "";
-        }
-
-        public string getTemperature()
-        {
-
-            int number = random.Next(1, 7);
-            if (number == 1)
-            {
-                return "50's";
-            }
-            if (number == 2)
-            {
-                return "60's";
-            }
-            if (number == 3)
-            {
-                return "70's";
-            }
-            if (number == 4)
-            {
-                return "80's";
-            }
-            if (number == 5)
-            {
-                return "90's";
-            }
-            if (number == 6)
-            {
-                return "100's";
-            }
-            return "";
-        }
+        }        
     }
 }
