@@ -49,14 +49,12 @@ namespace LemonadeStand
             }
             else Console.WriteLine("That was not an option, try again");
             BuyMenu();
-        
-                    
         }
 
 
         public int GetLemonQuantity()
         {
-            Console.WriteLine("How many lemons would you like to buy?");
+            Console.WriteLine("How many lemons would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserLemonQuantity = Int32.Parse(UserInput);
             return UserLemonQuantity;            
@@ -80,7 +78,7 @@ namespace LemonadeStand
 
         public int GetCupQuantity()
         {
-            Console.WriteLine("How many cups would you like to buy?");
+            Console.WriteLine("How many cups would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserCupQuantity = Int32.Parse(UserInput);
             return UserCupQuantity;
@@ -104,7 +102,7 @@ namespace LemonadeStand
 
         public int GetIceQuantity()
         {
-            Console.WriteLine("How much ice would you like to buy?");
+            Console.WriteLine("How much ice would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserIceQuantity = Int32.Parse(UserInput);
             return UserIceQuantity;
@@ -127,7 +125,7 @@ namespace LemonadeStand
 
         public int GetSugarQuantity()
         {
-            Console.WriteLine("How much sugar would you like to buy?");
+            Console.WriteLine("How much sugar would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserSugarQuantity = Int32.Parse(UserInput);
             return UserSugarQuantity;
@@ -144,6 +142,11 @@ namespace LemonadeStand
         {
             player.wallet.CheckWallet(ItemCost);
             player.wallet.BuyItem();
+        }
+
+        public void AddLemonsToInventory(Player player)
+        {
+            player.InventoryLemons =+ UserLemonQuantity;
         }
 
     }

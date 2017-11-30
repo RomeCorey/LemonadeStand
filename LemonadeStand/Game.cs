@@ -9,6 +9,22 @@ namespace LemonadeStand
     class Game
     {
         Player player;
+        UserInterface userinterface;        
+        Day day;
+        Weather weather;
+        Store Store;
+        Random random;
 
+        public Game()
+        {
+
+        }
+
+        public Menu()
+        {
+
+        }
+
+       
     }
 }
