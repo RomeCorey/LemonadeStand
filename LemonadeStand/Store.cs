@@ -8,7 +8,14 @@ namespace LemonadeStand
 {
     class Store
     {
+        
         public string BuyChoice;
+        public int UserLemonQuantity;
+        public double LemonFinalPrice;
+        public double IceBought;
+        public double CupsBought;
+        public double SugarBought;
+
 
         public string BuyMenu()
         {
@@ -22,23 +29,23 @@ namespace LemonadeStand
             
         }
 
-        public void BuyLemons()
+        public void BuyOptionsResult()
         {
             if (BuyChoice == "1")
             {
-                BuyLemons();
+                GetLemonQuantity();
             }
             else if (BuyChoice == "2")
             {
-                BuyCups();
+                GetCupQuantity();
             }
             else if (BuyChoice == "3")
             {
-                BuyIce();
+                GetIceQuantity();
             }
             else if (BuyChoice == "4")
             {
-                BuySugar();
+                GetSugarQuantity();
             }
             else Console.WriteLine("That was not an option, try again");
             BuyMenu();
@@ -47,7 +54,22 @@ namespace LemonadeStand
         }
 
 
-        public int BuyLemons()
+        public int GetLemonQuantity()
+        {
+            Console.WriteLine("How many lemons would you like to buy?");
+            string UserInput = Console.ReadLine();
+            int UserLemonQuantity = Int32.Parse(UserInput);
+            return UserLemonQuantity;            
+        }
+
+        public double GetLemonPurchasePrice()
+        {
+            Lemon lemon = new Lemon();
+            LemonFinalPrice = lemon.GetLemonCost() * UserLemonQuantity;
+            return LemonFinalPrice;
+        }
+
+        public double PayForLemons()
         {
 
         }
