@@ -9,7 +9,8 @@ namespace LemonadeStand
     class Player
     {       
         public Wallet wallet = new Wallet();
-        public Inventory inventory = new Inventory(); 
+        public Inventory inventory = new Inventory();
+        public string name;
          
         
     }

@@ -8,15 +8,17 @@ namespace LemonadeStand
 {
     class Wallet
     {
+        Store store = new Store();
         public double Money = 20.00;
         public bool Bankrupt;
+        public double ItemCost;
 
 
         public double GetCurrentMoney()
         {
             return Money;
         }
-        public bool CheckWallet(ItemCost)
+        public bool CheckWallet(double ItemCost)
         {
             if (ItemCost > Money)
                 Console.WriteLine("You do not have enough money!");

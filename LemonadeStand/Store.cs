@@ -15,6 +15,7 @@ namespace LemonadeStand
         public double IceBought;
         public double CupsBought;
         public double SugarBought;
+        public double ItemCost;
 
 
         public string BuyMenu()
@@ -65,17 +66,17 @@ namespace LemonadeStand
         public double GetLemonPurchasePrice()
         {
             Lemon lemon = new Lemon();
-            LemonFinalPrice = lemon.GetLemonCost() * UserLemonQuantity;
-            return LemonFinalPrice;
+            ItemCost = lemon.GetLemonCost() * UserLemonQuantity;
+            return ItemCost;
         }
 
-        public double PayForLemons()
+        public double PayForLemons(Player player)
         {
+            player.wallet.CheckWallet(ItemCost);
 
         }
         
-        //method that sums the total cost
-        //item * cost 
+        
 
     }
 }
