@@ -8,10 +8,18 @@ namespace LemonadeStand
 {
     class Player
     {       
-        public Wallet wallet = new Wallet();
-        public Inventory inventory = new Inventory();
-        public string name;
-         
+        private Wallet wallet = new Wallet();
+        private Inventory inventory = new Inventory();
         
+        public Inventory GetPlayerInventory()
+        {
+            return inventory;
+        }
+
+        public Wallet GetPlayerWallet()
+        {
+            return wallet;
+        }
+
     }
 }

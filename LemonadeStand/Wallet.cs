@@ -8,11 +8,17 @@ namespace LemonadeStand
 {
     class Wallet
     {
-        Store store = new Store();
-        public double Money = 20.00;
-        public bool Bankrupt;
-        public double ItemCost;
 
+        public double Money;
+        public bool Bankrupt;
+
+       
+
+        public Wallet()
+        {
+            Money = 20;
+            Bankrupt = false;
+        }
 
         public double GetCurrentMoney()
         {
@@ -26,9 +32,10 @@ namespace LemonadeStand
         }
         public double BuyItem()
         {
+            Store store = new Store();
             if (!Bankrupt)
             {
-                Money = ItemCost - Money;  
+                Money = store.ItemCost - Money;  
             }
             return Money;
 

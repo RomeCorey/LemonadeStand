@@ -121,22 +121,26 @@ namespace LemonadeStand
         
         public int SubtractLemonsFromInventory(Player player)
         {
-            return player.inventory.InventoryLemons -= LemonsPerPitcher;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            return PlayerInventory.InventoryLemons -= LemonsPerPitcher;
         }
 
         public int SubtractIceFromInventory(Player player)
         {
-            return player.inventory.InventoryIce -= IcePerPitcher;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            return PlayerInventory.InventoryIce -= IcePerPitcher;
         }
 
         public int SubtractSugarFromInventory(Player player)
         {
-            return player.inventory.InventorySugar -= LemonsPerPitcher;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            return PlayerInventory.InventorySugar -= LemonsPerPitcher;
         }
 
         public int SubtractCupsFromInventory(Player player)
         {
-            return player.inventory.InventoryCups -= CupsPerPitcher;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            return PlayerInventory.InventoryCups -= CupsPerPitcher;
         }
     }
 }

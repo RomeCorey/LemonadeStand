@@ -8,14 +8,14 @@ namespace LemonadeStand
 {
     class UserInterface
     {
-        Player player;
-        UserInterface userinterface;
-        Day day;
-        Weather weather;
-        Store Store;
-        Random random;
-        Recipe recipe;
-        Store store;
+        Player player = new Player();
+        UserInterface userinterface = new UserInterface();
+        Day day = new Day();
+        Weather weather = new Weather();
+        Store Store = new Store();
+        Random random = new Random();
+        Recipe recipe = new Recipe();
+        Store store = new Store();
 
         public void StartGame()
         {

@@ -9,16 +9,11 @@ namespace LemonadeStand
     class Lemon
     {
         private double LemonCost = .08;
-        private string LemonName;
 
         public double GetLemonCost()
         {
             return LemonCost;
         }
-
-        public string GetLemonName()
-        {
-            return LemonName;
-        }
+        
     }
 }

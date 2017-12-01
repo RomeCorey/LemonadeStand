@@ -16,6 +16,14 @@ namespace LemonadeStand
         public int UserSugarQuantity;        
         public double ItemCost;
 
+        public Store()
+        {
+            UserLemonQuantity = 0;
+            UserCupQuantity = 0;
+            UserIceQuantity = 0;
+            UserIceQuantity = 0;
+            UserSugarQuantity = 0;
+        }
 
         public string BuyMenu()
         {
@@ -69,8 +77,9 @@ namespace LemonadeStand
 
         public void PayForLemons(Player player)
         {
-            player.wallet.CheckWallet(ItemCost);
-            player.wallet.BuyItem();
+            Wallet PlayerWallet = player.GetPlayerWallet();
+            PlayerWallet.CheckWallet(ItemCost);
+            PlayerWallet.BuyItem();
         }
 
 
@@ -93,8 +102,9 @@ namespace LemonadeStand
 
         public void PayForCups(Player player)
         {
-            player.wallet.CheckWallet(ItemCost);
-            player.wallet.BuyItem();
+            Wallet PlayerWallet = player.GetPlayerWallet();
+            PlayerWallet.CheckWallet(ItemCost);
+            PlayerWallet.BuyItem();
         }
 
 
@@ -117,8 +127,9 @@ namespace LemonadeStand
 
         public void PayForIce(Player player)
         {
-            player.wallet.CheckWallet(ItemCost);
-            player.wallet.BuyItem();
+            Wallet PlayerWallet = player.GetPlayerWallet();
+            PlayerWallet.CheckWallet(ItemCost);
+            PlayerWallet.BuyItem();
         }
 
 
@@ -140,28 +151,33 @@ namespace LemonadeStand
 
         public void PayForSugar(Player player)
         {
-            player.wallet.CheckWallet(ItemCost);
-            player.wallet.BuyItem();
+            Wallet PlayerWallet = player.GetPlayerWallet();
+            PlayerWallet.CheckWallet(ItemCost);
+            PlayerWallet.BuyItem();
         }
 
         public void AddLemonsToInventory(Player player)
         {
-            player.inventory.InventoryLemons += UserLemonQuantity;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            PlayerInventory.InventoryLemons += UserLemonQuantity;
         }
 
         public void AddIceToInventory(Player player)
         {
-            player.inventory.InventoryIce += UserLemonQuantity;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            PlayerInventory.InventoryIce += UserLemonQuantity;
         }
 
         public void AddSugarToInventory(Player player)
         {
-            player.inventory.InventorySugar += UserLemonQuantity;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            PlayerInventory.InventorySugar += UserLemonQuantity;
         }
 
         public void AddCupsToInventory(Player player)
         {
-            player.inventory.InventoryCups += UserLemonQuantity;
+            Inventory PlayerInventory = player.GetPlayerInventory();
+            PlayerInventory.InventoryCups += UserLemonQuantity;
         }
     }
 }
