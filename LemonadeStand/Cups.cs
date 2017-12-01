@@ -8,7 +8,12 @@ namespace LemonadeStand
 {
     class Cups
     {
-        private double CupCost = .03;
+        private double CupCost;
+
+        public Cups()
+        {
+            CupCost = .03;
+        }
 
         public double GetCupCost()
         {

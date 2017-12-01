@@ -142,5 +142,25 @@ namespace LemonadeStand
             Inventory PlayerInventory = player.GetPlayerInventory();
             return PlayerInventory.InventoryCups -= CupsPerPitcher;
         }
+
+        public void PriceEffect(Customer customer)
+        {
+            if (PricePerPitcher < .30)
+            {
+                customer.percentChanceToBuy += 10;
+            }
+            else if(PricePerPitcher < .40)
+            {
+                customer.percentChanceToBuy += 5;
+            }
+            else if (PricePerPitcher < .50)
+            {
+                customer.percentChanceToBuy += 2;
+            }
+            else if(PricePerPitcher > .49)
+            {
+                customer.percentChanceToBuy -= 7;
+            }
+        }
     }
 }
