@@ -1,1 +1,2 @@
 c:\users\cortana\documents\visual studio 2015\Projects\LemonadeStand\LemonadeStand\bin\Debug\LemonadeStand.exe.config
+C:\Users\Cortana\Documents\Visual Studio 2015\Projects\LemonadeStand\LemonadeStand\obj\Debug\LemonadeStand.csprojResolveAssemblyReference.cache

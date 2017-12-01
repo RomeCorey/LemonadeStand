@@ -14,6 +14,7 @@ namespace LemonadeStand
         public int CupsPerPitcher;
         public int PitcherQuantity;
         public int PricePerPitcher;
+        public int RecipeOption;
 
         public int SetRecipeOptions()
         {
@@ -28,7 +29,36 @@ namespace LemonadeStand
             return RecipeOption;
         }
 
-
+        public void RecipePath(Player player,UserInterface userinterface, Weather weather, Store store, Recipe recipe)
+        {
+            if (RecipeOption == 1)
+            {
+                GetLemonsPerPitcher();
+                GetDaysWorthOfLemons();
+                SubtractLemonsFromInventory(player);
+            }
+            else if (RecipeOption == 2)
+            {
+                GetIcePerPitcher();
+                GetDaysWorthOfIce();
+                SubtractIceFromInventory(player);
+            }
+            else if (RecipeOption == 3)
+            {
+                GetSugarPerPitcher();
+                GetDaysWorthOfSugar();
+                SubtractSugarFromInventory(player);
+            }
+            else if (RecipeOption == 4)
+            {
+                GetPricePerPitcher();
+            }
+            else
+            {
+                Console.WriteLine("That was not an option, please try again");
+                userinterface.Menu(weather, store, recipe, player);
+            }
+        }
         public int GetLemonsPerPitcher()
         {            
             Console.WriteLine("How many lemons do you want in each pitcher?");

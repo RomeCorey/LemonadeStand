@@ -8,6 +8,21 @@ namespace LemonadeStand
 {
     class UserInterface
     {
+        Player player;
+        UserInterface userinterface;
+        Day day;
+        Weather weather;
+        Store Store;
+        Random random;
+        Recipe recipe;
+        Store store;
+
+        public void StartGame()
+        {
+            Welcome();
+            Rules();
+            Menu(weather, store, recipe, player);
+        }
         public void Welcome()
         {
             Console.WriteLine("Welcome to your very own Lemonade Stand!");            
@@ -21,7 +36,7 @@ namespace LemonadeStand
             Console.WriteLine("Then choose how much lemonade you want to make for the day.");
         }
         
-        public void Menu()
+        public void Menu(Weather weather, Store store, Recipe recipe, Player player)
         {
             Console.WriteLine("This is the Main Menu. Use the numbers to navagate from below:");
             Console.WriteLine("'1' - Check the Weather");
@@ -32,7 +47,18 @@ namespace LemonadeStand
 
             if (MenuChoice == "1")
             {
-
+                weather.GetWeather();
+            }
+            else if (MenuChoice == "2")
+            {
+                store.BuyMenu();
+                store.BuyOptionsResult();
+                // Complete store path
+            }
+            else if (MenuChoice == "3")
+            {
+                recipe.SetRecipeOptions();
+                recipe.RecipePath(player, userinterface, weather, store, recipe);
             }
 
 
