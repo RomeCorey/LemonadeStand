@@ -12,7 +12,7 @@ namespace LemonadeStand
         {
 
             UserInterface userinterface = new UserInterface();
-            userinterface.Welcome();
+            userinterface.StartGame();
             
         }
     }

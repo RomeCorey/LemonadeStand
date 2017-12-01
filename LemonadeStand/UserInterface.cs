@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class UserInterface
+    public class UserInterface
     {
-        Player player = new Player();
-        UserInterface userinterface = new UserInterface();
+        Player player = new Player();       
         Day day = new Day();
         Weather weather = new Weather();
         Store Store = new Store();
@@ -42,7 +41,7 @@ namespace LemonadeStand
             Console.WriteLine("'1' - Check the Weather");
             Console.WriteLine("'2' - Buy Supplies from the store");
             Console.WriteLine("'3' - Change your price and recipe for your lemonade");
-            Console.WriteLine("'4' - Play");
+            Console.WriteLine("'4' - Play Day");
             string MenuChoice = Console.ReadLine();
 
             if (MenuChoice == "1")
@@ -58,7 +57,12 @@ namespace LemonadeStand
             else if (MenuChoice == "3")
             {
                 recipe.SetRecipeOptions();
-                recipe.RecipePath(player, userinterface, weather, store, recipe);
+                recipe.RecipePath(player, weather, store, recipe);
+            }
+            else if (MenuChoice == "4")
+            {
+                day.FillCustomers();
+                day.WeatherAffect();
             }
 
 

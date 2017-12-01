@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Player
+    public class Player
     {       
         private Wallet wallet = new Wallet();
         private Inventory inventory = new Inventory();

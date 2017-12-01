@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Recipe
+    public class Recipe
     {        
         public int LemonsPerPitcher;
         public int IcePerPitcher;
@@ -29,7 +29,7 @@ namespace LemonadeStand
             return RecipeOption;
         }
 
-        public void RecipePath(Player player,UserInterface userinterface, Weather weather, Store store, Recipe recipe)
+        public void RecipePath(Player player, Weather weather, Store store, Recipe recipe)
         {
             if (RecipeOption == 1)
             {
@@ -56,7 +56,7 @@ namespace LemonadeStand
             else
             {
                 Console.WriteLine("That was not an option, please try again");
-                userinterface.Menu(weather, store, recipe, player);
+                SetRecipeOptions();
             }
         }
         public int GetLemonsPerPitcher()
@@ -161,6 +161,6 @@ namespace LemonadeStand
             {
                 customer.percentChanceToBuy -= 7;
             }
+        }        
         }
-    }
 }

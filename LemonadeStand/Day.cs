@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Day
     {   public int CurrentDay = 0;
         List<Customer> customers = new List<Customer>();
         Random rnd = new Random();
