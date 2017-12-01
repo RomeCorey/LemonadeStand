@@ -9,16 +9,10 @@ namespace LemonadeStand
     class Sugar
     {
         private double SugarCost = .09;
-        private string SugarName;
 
         public double GetSugarCost()
         {
             return SugarCost;
-        }
-
-        public string GetSugarName()
-        {
-            return SugarName;
-        }
+        }        
     }
 }
