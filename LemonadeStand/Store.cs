@@ -20,6 +20,7 @@ namespace LemonadeStand
         public string BuyMenu()
         {
             Console.WriteLine("Welcome to the store, what would you like to buy?");
+            // Display Current Money
             Console.WriteLine("'1' Buy Lemons");
             Console.WriteLine("'2' Buy Cups");
             Console.WriteLine("'3' Buy Ice"); 
@@ -146,9 +147,23 @@ namespace LemonadeStand
 
         public void AddLemonsToInventory(Player player)
         {
-            player.InventoryLemons =+ UserLemonQuantity;
+            player.inventory.InventoryLemons += UserLemonQuantity;
         }
 
+        public void AddIceToInventory(Player player)
+        {
+            player.inventory.InventoryIce += UserLemonQuantity;
+        }
+
+        public void AddSugarToInventory(Player player)
+        {
+            player.inventory.InventorySugar += UserLemonQuantity;
+        }
+
+        public void AddCupsToInventory(Player player)
+        {
+            player.inventory.InventoryCups += UserLemonQuantity;
+        }
     }
 }
 

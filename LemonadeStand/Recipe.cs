@@ -63,17 +63,27 @@ namespace LemonadeStand
 
         public int GetDaysWorthOfCups()
         {
-            return CupsPerPitcher = CupsPerPitcher * PitcherQuantity;
+            return CupsPerPitcher = 10 * PitcherQuantity;
+        }
+        
+        public int SubtractLemonsFromInventory(Player player)
+        {
+            return player.inventory.InventoryLemons -= LemonsPerPitcher;
         }
 
-
-
-        public int RemoveInventoryForPitchers()
+        public int SubtractIceFromInventory(Player player)
         {
-            InventoryLemons =- LemonsPerPitcher;
-            InventoryIce =- IcePerPitcher;
-            InventorySugar =- SugarPerPitcher;
-            InvnetoryCups = -10;
+            return player.inventory.InventoryIce -= IcePerPitcher;
+        }
+
+        public int SubtractSugarFromInventory(Player player)
+        {
+            return player.inventory.InventorySugar -= LemonsPerPitcher;
+        }
+
+        public int SubtractCupsFromInventory(Player player)
+        {
+            return player.inventory.InventoryCups -= CupsPerPitcher;
         }
     }
 }

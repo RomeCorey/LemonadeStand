@@ -37,7 +37,7 @@ namespace LemonadeStand
                 
                 for (int i = 0; i > customers.Count; i++)
                 {
-                    customers[i].percentChanceToBuy =- 10;                    
+                    customers[i].percentChanceToBuy -= 10;                    
                 }
             }
             else if (weatherinfo == "Overcast")
@@ -45,7 +45,7 @@ namespace LemonadeStand
 
                 for (int i = 0; i > customers.Count; i++)
                 {
-                    customers[i].percentChanceToBuy =- 6;
+                    customers[i].percentChanceToBuy -= 6;
                 }
             }
             else if (weatherinfo == "Cloudy")
@@ -53,7 +53,7 @@ namespace LemonadeStand
 
                 for (int i = 0; i > customers.Count; i++)
                 {
-                    customers[i].percentChanceToBuy =- 1;
+                    customers[i].percentChanceToBuy -= 1;
                 }
             }
             if (weatherinfo == "Sunny")
@@ -61,18 +61,10 @@ namespace LemonadeStand
 
                 for (int i = 0; i > customers.Count; i++)
                 {
-                    customers[i].percentChanceToBuy =+ 10;
+                    customers[i].percentChanceToBuy += 10;
                 }
-            }
-
-
-
-
-
-
+            }            
         }
-
-
 
     }
 }
