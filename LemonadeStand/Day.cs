@@ -30,9 +30,9 @@ namespace LemonadeStand
         public void WeatherAffect()
         {
 
-            string weatherinfo = weather.GetWeather();
+            string weatherInfo = weather.GetWeather();
 
-            if (weatherinfo == "Rain")
+            if (weatherInfo == "Rain")
             {
                 
                 for (int i = 0; i > customers.Count; i++)
@@ -40,7 +40,7 @@ namespace LemonadeStand
                     customers[i].percentChanceToBuy -= 10;                    
                 }
             }
-            else if (weatherinfo == "Overcast")
+            else if (weatherInfo == "Overcast")
             {
 
                 for (int i = 0; i > customers.Count; i++)
@@ -48,7 +48,7 @@ namespace LemonadeStand
                     customers[i].percentChanceToBuy -= 6;
                 }
             }
-            else if (weatherinfo == "Cloudy")
+            else if (weatherInfo == "Cloudy")
             {
 
                 for (int i = 0; i > customers.Count; i++)
@@ -56,7 +56,7 @@ namespace LemonadeStand
                     customers[i].percentChanceToBuy -= 1;
                 }
             }
-            if (weatherinfo == "Sunny")
+            if (weatherInfo == "Sunny")
             {
 
                 for (int i = 0; i > customers.Count; i++)
@@ -65,6 +65,47 @@ namespace LemonadeStand
                 }
             }            
         }
+
+        public void PriceAffect()
+        {
+
+            string weatherInfo = weather.GetWeather();
+
+            if (weatherInfo == "Rain")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy -= 10;
+                }
+            }
+            else if (weatherInfo == "Overcast")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy -= 6;
+                }
+            }
+            else if (weatherInfo == "Cloudy")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy -= 1;
+                }
+            }
+            if (weatherInfo == "Sunny")
+            {
+
+                for (int i = 0; i > customers.Count; i++)
+                {
+                    customers[i].percentChanceToBuy += 10;
+                }
+            }
+        }
+
+
 
     }
 }
