@@ -19,8 +19,7 @@ namespace LemonadeStand
 
         public string BuyMenu()
         {
-            Console.WriteLine("Welcome to the store, what would you like to buy?");
-            // Display Current Money
+            Console.WriteLine("Welcome to the store, what would you like to buy?");            
             Console.WriteLine("'1' Buy Lemons");
             Console.WriteLine("'2' Buy Cups");
             Console.WriteLine("'3' Buy Ice"); 

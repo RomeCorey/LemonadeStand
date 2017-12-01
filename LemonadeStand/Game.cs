@@ -15,16 +15,9 @@ namespace LemonadeStand
         Store Store;
         Random random;
 
-        public Game()
+        public RunGame()
         {
 
-        }
-
-        public Menu()
-        {
-
-        }
-
-       
+        }    
     }
 }

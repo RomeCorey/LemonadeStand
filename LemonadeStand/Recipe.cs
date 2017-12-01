@@ -13,6 +13,21 @@ namespace LemonadeStand
         public int SugarPerPitcher;
         public int CupsPerPitcher;
         public int PitcherQuantity;
+        public int PricePerPitcher;
+
+        public int SetRecipeOptions()
+        {
+            Console.WriteLine("Select which part of the recipe you would like to change. \n Remember each pitcher makes 10 cups of lemonade.");
+            Console.WriteLine("'1' Lemons per pitcher.");
+            Console.WriteLine("'2' Ice per pitcher.");
+            Console.WriteLine("'3' Sugar per pitcher.");
+            Console.WriteLine("'4' Price per pitcher.");
+            Console.WriteLine("'5' How many pitchers would you like to make for the day?");
+            string UserInput = Console.ReadLine();
+            int RecipeOption = Int32.Parse(UserInput);
+            return RecipeOption;
+        }
+
 
         public int GetLemonsPerPitcher()
         {            
@@ -44,6 +59,14 @@ namespace LemonadeStand
             string UserInput = Console.ReadLine();
             int PitcherQuantity = Int32.Parse(UserInput);
             return PitcherQuantity;
+        }
+
+        public int GetPricePerPitcher()
+        {
+            Console.WriteLine("How much would you like to sell each cup for? I would suggest between $0.20 and $0.50");
+            string UserInput = Console.ReadLine();
+            int PricePerPitcher = Int32.Parse(UserInput);
+            return PricePerPitcher;
         }
 
         public int GetDaysWorthOfLemons()
