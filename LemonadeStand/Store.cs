@@ -25,6 +25,8 @@ namespace LemonadeStand
             UserSugarQuantity = 0;
         }
 
+
+
         public string BuyMenu()
         {
             Console.WriteLine("Welcome to the store, what would you like to buy?");            
@@ -37,23 +39,36 @@ namespace LemonadeStand
             
         }
 
-        public void BuyOptionsResult()
+        public void BuyOptionsResult(Player player)
         {
+            
             if (BuyChoice == "1")
             {
                 GetLemonQuantity();
+                GetLemonPurchasePrice();
+                PayForLemons(player);
+                AddLemonsToInventory();
             }
             else if (BuyChoice == "2")
             {
                 GetCupQuantity();
+                GetCupPurchasePrice();
+                PayForCups(player);
+                AddCupsToInventory();
             }
             else if (BuyChoice == "3")
             {
                 GetIceQuantity();
+                GetIcePurchasePrice();
+                PayForIce(player);
+                AddIceToInventory();
             }
             else if (BuyChoice == "4")
             {
                 GetSugarQuantity();
+                GetSugarPurchasePrice();
+                PayForSugar();
+                AddSugarToInventory();
             }
             else Console.WriteLine("That was not an option, try again");
             BuyMenu();
@@ -77,6 +92,7 @@ namespace LemonadeStand
 
         public void PayForLemons(Player player)
         {
+            
             Wallet PlayerWallet = player.GetPlayerWallet();
             PlayerWallet.CheckWallet(ItemCost);
             PlayerWallet.BuyItem();
@@ -127,6 +143,7 @@ namespace LemonadeStand
 
         public void PayForIce(Player player)
         {
+            
             Wallet PlayerWallet = player.GetPlayerWallet();
             PlayerWallet.CheckWallet(ItemCost);
             PlayerWallet.BuyItem();
@@ -149,33 +166,38 @@ namespace LemonadeStand
             return ItemCost;
         }
 
-        public void PayForSugar(Player player)
+        public void PayForSugar()
         {
+            Player player = new Player();
             Wallet PlayerWallet = player.GetPlayerWallet();
             PlayerWallet.CheckWallet(ItemCost);
             PlayerWallet.BuyItem();
         }
 
-        public void AddLemonsToInventory(Player player)
+        public void AddLemonsToInventory()
         {
+            Player player = new Player();
             Inventory PlayerInventory = player.GetPlayerInventory();
             PlayerInventory.InventoryLemons += UserLemonQuantity;
         }
 
-        public void AddIceToInventory(Player player)
+        public void AddIceToInventory()
         {
+            Player player = new Player();
             Inventory PlayerInventory = player.GetPlayerInventory();
             PlayerInventory.InventoryIce += UserLemonQuantity;
         }
 
-        public void AddSugarToInventory(Player player)
+        public void AddSugarToInventory()
         {
+            Player player = new Player();
             Inventory PlayerInventory = player.GetPlayerInventory();
             PlayerInventory.InventorySugar += UserLemonQuantity;
         }
 
-        public void AddCupsToInventory(Player player)
+        public void AddCupsToInventory()
         {
+            Player player = new Player();
             Inventory PlayerInventory = player.GetPlayerInventory();
             PlayerInventory.InventoryCups += UserLemonQuantity;
         }

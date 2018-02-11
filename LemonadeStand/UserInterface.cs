@@ -20,7 +20,7 @@ namespace LemonadeStand
         {
             Welcome();
             Rules();
-            Menu(weather, store, recipe, player);
+            Menu();
         }
         public void Welcome()
         {
@@ -35,29 +35,45 @@ namespace LemonadeStand
             Console.WriteLine("Then choose how much lemonade you want to make for the day.");
         }
         
-        public void Menu(Weather weather, Store store, Recipe recipe, Player player)
+        public void Menu()
         {
             Console.WriteLine("This is the Main Menu. Use the numbers to navagate from below:");
-            Console.WriteLine("'1' - Check the Weather");
+            Console.WriteLine("'1' - Check the Weather Forecast for the week");
             Console.WriteLine("'2' - Buy Supplies from the store");
             Console.WriteLine("'3' - Change your price and recipe for your lemonade");
-            Console.WriteLine("'4' - Play Day");
+            Console.WriteLine("'4' - Play Week");
             string MenuChoice = Console.ReadLine();
 
             if (MenuChoice == "1")
             {
-                weather.GetWeather();
+               string weatherInfo = weather.GetWeather();
+                Console.WriteLine("Monday "+ weatherInfo);
+                string weatherInfoDayTwo = weather.GetWeather();
+                Console.WriteLine("Tuesday " + weatherInfoDayTwo);
+                string weatherInfoDayThree = weather.GetWeather();
+                Console.WriteLine("Wednesday " + weatherInfoDayThree);
+                string weatherInfoDayFour = weather.GetWeather();
+                Console.WriteLine("Thursday " + weatherInfoDayFour);
+                string weatherInfoDayFive = weather.GetWeather();
+                Console.WriteLine("Friday " + weatherInfoDayFive);
+                string weatherInfoDaySix = weather.GetWeather();
+                Console.WriteLine("Saturday " + weatherInfoDaySix);
+                string weatherInfoDaySeven = weather.GetWeather();
+                Console.WriteLine("Sunday " + weatherInfoDaySeven);
+                Menu();
             }
             else if (MenuChoice == "2")
             {
                 store.BuyMenu();
-                store.BuyOptionsResult();
+                store.BuyOptionsResult(player);
+                Menu();
                 // Complete store path
             }
             else if (MenuChoice == "3")
             {
                 recipe.SetRecipeOptions();
                 recipe.RecipePath(player, weather, store, recipe);
+                Menu();
             }
             else if (MenuChoice == "4")
             {
