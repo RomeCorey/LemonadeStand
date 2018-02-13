@@ -167,14 +167,14 @@ namespace LemonadeStand
         //}
 
        
-        public double PayForIce(Player player, Wallet wallet)
-        {
-            //Wallet PlayerWallet = player.GetPlayerWallet();
-            wallet.CheckWallet(ItemCost);
-            wallet.Money = wallet.Money - ItemCost;
-            //PlayerWallet.BuyItem();
-            return wallet.Money;
-        }
+        //public double PayForIce(Player player, Wallet wallet)
+        //{
+        //    //Wallet PlayerWallet = player.GetPlayerWallet();
+        //    wallet.CheckWallet(ItemCost);
+        //    wallet.Money = wallet.Money - ItemCost;
+        //    //PlayerWallet.BuyItem();
+        //    return wallet.Money;
+        //}
 
 
 

@@ -73,7 +73,7 @@ namespace LemonadeStand
             }
             else if (MenuChoice == "3")
             {
-                recipe.SetRecipeOptions();
+                recipe.SetRecipeOptions(player);
                 recipe.RecipePath(player, weather, store, recipe);
                 Menu();
             }

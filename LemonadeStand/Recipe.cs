@@ -14,9 +14,9 @@ namespace LemonadeStand
         public int CupsPerPitcher;
         public int PitcherQuantity;
         public int PricePerPitcher;
-        public int RecipeOption;
+        public string RecipeOption;
 
-        public int SetRecipeOptions()
+        public string SetRecipeOptions(Player player)
         {
             Console.WriteLine("Select which part of the recipe you would like to change. \n Remember each pitcher makes 10 cups of lemonade.");
             Console.WriteLine("'1' Lemons per pitcher.");
@@ -24,71 +24,92 @@ namespace LemonadeStand
             Console.WriteLine("'3' Sugar per pitcher.");
             Console.WriteLine("'4' Price per pitcher.");
             Console.WriteLine("'5' How many pitchers would you like to make for the day?");
-            string UserInput = Console.ReadLine();
-            int RecipeOption = Int32.Parse(UserInput);
-            return RecipeOption;
+
+            return RecipeOption = Console.ReadLine();
         }
 
         public void RecipePath(Player player, Weather weather, Store store, Recipe recipe)
         {
-            if (RecipeOption == 1)
+            if (RecipeOption == "1")
             {
-                GetLemonsPerPitcher();
-                GetDaysWorthOfLemons();
+                GetLemonsPerPitcher(player);
+                //GetDaysWorthOfLemons();
                 //SubtractLemonsFromInventory(player);
             }
-            else if (RecipeOption == 2)
+            else if (RecipeOption == "2")
             {
-                GetIcePerPitcher();
-                GetDaysWorthOfIce();
+                GetIcePerPitcher(player);
+                //GetDaysWorthOfIce();
                 //SubtractIceFromInventory(player);
             }
-            else if (RecipeOption == 3)
+            else if (RecipeOption == "3")
             {
-                GetSugarPerPitcher();
-                GetDaysWorthOfSugar();
+                GetSugarPerPitcher(player);
+                //GetDaysWorthOfSugar();
                 //SubtractSugarFromInventory(player);
             }
-            else if (RecipeOption == 4)
+            else if (RecipeOption == "4")
             {
                 GetPricePerPitcher();
+            }
+            else if (RecipeOption == "5")
+            {
+                GetPitcherQuantity(player);
             }
             else
             {
                 Console.WriteLine("That was not an option, please try again");
-                SetRecipeOptions();
+                SetRecipeOptions(player);
             }
         }
-        public int GetLemonsPerPitcher()
+        public int GetLemonsPerPitcher(Player player)
         {            
             Console.WriteLine("How many lemons do you want in each pitcher?");
             string UserInput = Console.ReadLine();
             int LemonsPerPitcher = Int32.Parse(UserInput);
-            return LemonsPerPitcher;            
+            Console.WriteLine("You now have "+LemonsPerPitcher+" of lemons in each pitcher of lemonade");
+            return player.CurrentInventory.RecipeLemons = LemonsPerPitcher;            
         }
 
-        public int GetIcePerPitcher()
+        public int GetIcePerPitcher(Player player)
         {
             Console.WriteLine("How much ice do you want in each pitcher?");
             string UserInput = Console.ReadLine();
             int IcePerPitcher = Int32.Parse(UserInput);
-            return IcePerPitcher;
+            Console.WriteLine("You now have " + IcePerPitcher + " cubes of ice in each pitcher of lemonade");
+            return player.CurrentInventory.RecipeIce = IcePerPitcher;
         }
 
-        public int GetSugarPerPitcher()
+        public int GetSugarPerPitcher(Player player)
         {
             Console.WriteLine("How much Sugar do you want in each pitcher?");
             string UserInput = Console.ReadLine();
             int SugarPerPitcher = Int32.Parse(UserInput);
-            return SugarPerPitcher;
+            Console.WriteLine("You now have " + SugarPerPitcher + " cubes of Sugar in each pitcher of lemonade");
+            return player.CurrentInventory.RecipeSugar = SugarPerPitcher;
         }
 
-        public int GetPitcherQuantity()
+        public int GetPitcherQuantity(Player player)
         {
             Console.WriteLine("How many pitchers of lemonade would you like to make? Each pitcher makes 10 cups of lemonade!");
             string UserInput = Console.ReadLine();
             int PitcherQuantity = Int32.Parse(UserInput);
-            return PitcherQuantity;
+            int TotalLemons = player.CurrentInventory.RecipeLemons * PitcherQuantity;
+            int TotalCups = player.CurrentInventory.RecipeCups * PitcherQuantity;
+            int TotalSugar = player.CurrentInventory.RecipeSugar * PitcherQuantity;
+            int TotalIce = player.CurrentInventory.RecipeIce * PitcherQuantity;
+            player.CurrentInventory.InventoryLemons = player.CurrentInventory.InventoryLemons - TotalLemons;
+            player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - TotalCups;
+            player.CurrentInventory.InventorySugar = player.CurrentInventory.InventorySugar - TotalSugar;
+            player.CurrentInventory.InventoryIce = player.CurrentInventory.InventoryIce - TotalIce;
+            int FinalCups = PitcherQuantity * 10;
+            player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - FinalCups;
+            Console.WriteLine("You made " + FinalCups + " cups of lemonade total!");
+            Console.WriteLine("You have " + player.CurrentInventory.InventoryLemons + " lemons left");
+            Console.WriteLine("You have " + player.CurrentInventory.InventoryIce + " ice cubes left");
+            Console.WriteLine("You have " + player.CurrentInventory.InventorySugar + " sugar cubes left");
+            Console.WriteLine("You have " + player.CurrentInventory.InventoryCups + " cups left");
+            return FinalCups;
         }
 
         public int GetPricePerPitcher()
@@ -99,25 +120,25 @@ namespace LemonadeStand
             return PricePerPitcher;
         }
 
-        public int GetDaysWorthOfLemons()
-        {
-            return LemonsPerPitcher = LemonsPerPitcher * PitcherQuantity;           
-        }
+        //public int GetDaysWorthOfLemons()
+        //{
+        //    return LemonsPerPitcher = LemonsPerPitcher * PitcherQuantity;           
+        //}
 
-        public int GetDaysWorthOfIce()
-        {
-            return IcePerPitcher = IcePerPitcher * PitcherQuantity;
-        }
+        //public int GetDaysWorthOfIce()
+        //{
+        //    return IcePerPitcher = IcePerPitcher * PitcherQuantity;
+        //}
 
-        public int GetDaysWorthOfSugar()
-        {
-            return SugarPerPitcher = SugarPerPitcher * PitcherQuantity;
-        }
+        //public int GetDaysWorthOfSugar()
+        //{
+        //    return SugarPerPitcher = SugarPerPitcher * PitcherQuantity;
+        //}
 
-        public int GetDaysWorthOfCups()
-        {
-            return CupsPerPitcher = 10 * PitcherQuantity;
-        }
+        //public int GetDaysWorthOfCups()
+        //{
+        //    return CupsPerPitcher = 10 * PitcherQuantity;
+        //}
         
         //public int SubtractLemonsFromInventory(Player player)
         //{
