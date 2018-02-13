@@ -16,7 +16,7 @@ namespace LemonadeStand
 
         public Wallet()
         {
-            Money = 20;
+            Money = 20.00;
             Bankrupt = false;
         }
 

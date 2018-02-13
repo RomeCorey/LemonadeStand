@@ -41,31 +41,33 @@ namespace LemonadeStand
             Console.WriteLine("'1' - Check the Weather Forecast for the week");
             Console.WriteLine("'2' - Buy Supplies from the store");
             Console.WriteLine("'3' - Change your price and recipe for your lemonade");
-            Console.WriteLine("'4' - Play Week");
+            Console.WriteLine("'4' - Play Day");
+            
             string MenuChoice = Console.ReadLine();
 
             if (MenuChoice == "1")
             {
                string weatherInfo = weather.GetWeather();
-                Console.WriteLine("Monday "+ weatherInfo);
+                Console.WriteLine("Monday - "+ weatherInfo);
                 string weatherInfoDayTwo = weather.GetWeather();
-                Console.WriteLine("Tuesday " + weatherInfoDayTwo);
+                Console.WriteLine("Tuesday - " + weatherInfoDayTwo);
                 string weatherInfoDayThree = weather.GetWeather();
-                Console.WriteLine("Wednesday " + weatherInfoDayThree);
+                Console.WriteLine("Wednesday - " + weatherInfoDayThree);
                 string weatherInfoDayFour = weather.GetWeather();
-                Console.WriteLine("Thursday " + weatherInfoDayFour);
+                Console.WriteLine("Thursday - " + weatherInfoDayFour);
                 string weatherInfoDayFive = weather.GetWeather();
-                Console.WriteLine("Friday " + weatherInfoDayFive);
+                Console.WriteLine("Friday - " + weatherInfoDayFive);
                 string weatherInfoDaySix = weather.GetWeather();
-                Console.WriteLine("Saturday " + weatherInfoDaySix);
+                Console.WriteLine("Saturday - " + weatherInfoDaySix);
                 string weatherInfoDaySeven = weather.GetWeather();
-                Console.WriteLine("Sunday " + weatherInfoDaySeven);
+                Console.WriteLine("Sunday - " + weatherInfoDaySeven);
                 Menu();
             }
             else if (MenuChoice == "2")
             {
                 store.BuyMenu();
                 store.BuyOptionsResult(player);
+
                 Menu();
                 // Complete store path
             }

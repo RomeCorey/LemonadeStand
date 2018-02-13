@@ -16,14 +16,14 @@ namespace LemonadeStand
         public int UserSugarQuantity;        
         public double ItemCost;
 
-        public Store()
-        {
-            UserLemonQuantity = 0;
-            UserCupQuantity = 0;
-            UserIceQuantity = 0;
-            UserIceQuantity = 0;
-            UserSugarQuantity = 0;
-        }
+        //public Store()
+        //{
+            //UserLemonQuantity = 0;
+            //UserCupQuantity = 0;
+            //UserIceQuantity = 0;
+            //UserIceQuantity = 0;
+            //UserSugarQuantity = 0;
+        //}
 
 
 
@@ -34,7 +34,7 @@ namespace LemonadeStand
             Console.WriteLine("'2' Buy Cups");
             Console.WriteLine("'3' Buy Ice"); 
             Console.WriteLine("'4' Buy Sugar");
-            Console.ReadLine();
+            //Console.ReadLine();
             return BuyChoice = Console.ReadLine();
             
         }
@@ -44,8 +44,8 @@ namespace LemonadeStand
             
             if (BuyChoice == "1")
             {
-                GetLemonQuantity();
-                GetLemonPurchasePrice();
+                GetLemonQuantityAndCost();
+                //GetLemonPurchasePrice();
                 PayForLemons(player);
                 AddLemonsToInventory();
             }
@@ -75,20 +75,23 @@ namespace LemonadeStand
         }
 
 
-        public int GetLemonQuantity()
+        public double GetLemonQuantityAndCost()
         {
+            Lemon lemon = new Lemon();
             Console.WriteLine("How many lemons would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserLemonQuantity = Int32.Parse(UserInput);
-            return UserLemonQuantity;            
-        }
-
-        public double GetLemonPurchasePrice()
-        {
-            Lemon lemon = new Lemon();
             ItemCost = lemon.GetLemonCost() * UserLemonQuantity;
             return ItemCost;
         }
+
+        //public double GetLemonPurchasePrice()
+        //{
+        //    Lemon lemon = new Lemon();
+        //     ItemCost = lemon.GetLemonCost() * UserLemonQuantity;
+        //    //Display cost
+        //    return ItemCost;
+        //}
 
         public void PayForLemons(Player player)
         {
@@ -113,6 +116,7 @@ namespace LemonadeStand
         {
             Cups cup = new Cups();
             ItemCost = cup.GetCupCost() * UserCupQuantity;
+            Console.WriteLine("That will cost " +ItemCost);
             return ItemCost;
         }
 

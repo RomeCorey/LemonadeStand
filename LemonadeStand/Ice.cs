@@ -8,16 +8,15 @@ namespace LemonadeStand
 {
     public class Ice
     {
-        private double IceCost;
+        
+        public double IceCost { get; private set; }
 
-        public Ice()
-        {
-            IceCost = .09;
-        }
         public double GetIceCost()
         {
-            return IceCost;
+            return IceCost = .05;
         }
-        
+
+
+
     }
 }
