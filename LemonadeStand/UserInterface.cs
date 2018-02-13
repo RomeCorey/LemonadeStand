@@ -15,6 +15,7 @@ namespace LemonadeStand
         Random random = new Random();
         Recipe recipe = new Recipe();
         Store store = new Store();
+        Wallet wallet = new Wallet();
 
         public void StartGame()
         {
@@ -29,7 +30,7 @@ namespace LemonadeStand
 
         public void Rules()
         {
-            Console.WriteLine("The goal is to make as much money you can over a 7 day period at a lemonade stand.");
+            Console.WriteLine("The goal is to make as much money you can over a 7 day period at a lemonade stand. You start with $20.00");
             Console.WriteLine("Customers will walk buy. Their chance of buying is affected by the price per cup that you set and the weather.");
             Console.WriteLine("Each day you can buy the supplies you will need to make more lemonade.");
             Console.WriteLine("Then choose how much lemonade you want to make for the day.");
@@ -42,7 +43,7 @@ namespace LemonadeStand
             Console.WriteLine("'2' - Buy Supplies from the store");
             Console.WriteLine("'3' - Change your price and recipe for your lemonade");
             Console.WriteLine("'4' - Play Day");
-            
+            Console.WriteLine("You have $"+player.CurrentMoney.Money);
             string MenuChoice = Console.ReadLine();
 
             if (MenuChoice == "1")
@@ -67,7 +68,6 @@ namespace LemonadeStand
             {
                 store.BuyMenu();
                 store.BuyOptionsResult(player);
-
                 Menu();
                 // Complete store path
             }

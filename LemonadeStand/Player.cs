@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 namespace LemonadeStand
 {
     public class Player
-    {       
-        private Wallet wallet = new Wallet();
-        private Inventory inventory = new Inventory();
-        
-        public Inventory GetPlayerInventory()
-        {
-            return inventory;
-        }
+    {
+        public Wallet CurrentMoney;
+        public Inventory CurrentInventory;
 
-        public Wallet GetPlayerWallet()
+        public Player()
         {
-            return wallet;
+            CurrentMoney = new Wallet();
+            CurrentInventory = new Inventory();
         }
+        
+        
+
+       
 
     }
 }

@@ -35,19 +35,19 @@ namespace LemonadeStand
             {
                 GetLemonsPerPitcher();
                 GetDaysWorthOfLemons();
-                SubtractLemonsFromInventory(player);
+                //SubtractLemonsFromInventory(player);
             }
             else if (RecipeOption == 2)
             {
                 GetIcePerPitcher();
                 GetDaysWorthOfIce();
-                SubtractIceFromInventory(player);
+                //SubtractIceFromInventory(player);
             }
             else if (RecipeOption == 3)
             {
                 GetSugarPerPitcher();
                 GetDaysWorthOfSugar();
-                SubtractSugarFromInventory(player);
+                //SubtractSugarFromInventory(player);
             }
             else if (RecipeOption == 4)
             {
@@ -119,28 +119,28 @@ namespace LemonadeStand
             return CupsPerPitcher = 10 * PitcherQuantity;
         }
         
-        public int SubtractLemonsFromInventory(Player player)
-        {
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            return PlayerInventory.InventoryLemons -= LemonsPerPitcher;
-        }
+        //public int SubtractLemonsFromInventory(Player player)
+        //{
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    return PlayerInventory.InventoryLemons -= LemonsPerPitcher;
+        //}
 
-        public int SubtractIceFromInventory(Player player)
-        {
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            return PlayerInventory.InventoryIce -= IcePerPitcher;
-        }
+        //public int SubtractIceFromInventory(Player player)
+        //{
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    return PlayerInventory.InventoryIce -= IcePerPitcher;
+        //}
 
-        public int SubtractSugarFromInventory(Player player)
-        {
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            return PlayerInventory.InventorySugar -= LemonsPerPitcher;
-        }
+        //public int SubtractSugarFromInventory(Player player)
+        //{
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    return PlayerInventory.InventorySugar -= LemonsPerPitcher;
+        //}
 
-        public int SubtractCupsFromInventory(Player player)
-        {
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            return PlayerInventory.InventoryCups -= CupsPerPitcher;                
-        }        
+        //public int SubtractCupsFromInventory(Player player)
+        //{
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    return PlayerInventory.InventoryCups -= CupsPerPitcher;                
+        //}        
         }
 }

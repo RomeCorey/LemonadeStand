@@ -29,11 +29,11 @@ namespace LemonadeStand
 
         public string BuyMenu()
         {
-            Console.WriteLine("Welcome to the store, what would you like to buy?");            
-            Console.WriteLine("'1' Buy Lemons");
-            Console.WriteLine("'2' Buy Cups");
-            Console.WriteLine("'3' Buy Ice"); 
-            Console.WriteLine("'4' Buy Sugar");
+            Console.WriteLine("Welcome to the store, what would you like to buy? You have $20.00");            
+            Console.WriteLine("'1' Buy Lemons for $0.08 each");
+            Console.WriteLine("'2' Buy Cups for $0.03 each");
+            Console.WriteLine("'3' Buy Ice for $0.05 each"); 
+            Console.WriteLine("'4' Buy Sugar for $.08 each");
             //Console.ReadLine();
             return BuyChoice = Console.ReadLine();
             
@@ -44,45 +44,50 @@ namespace LemonadeStand
             
             if (BuyChoice == "1")
             {
-                GetLemonQuantityAndCost();
+                GetLemonQuantityAndCost(player);
                 //GetLemonPurchasePrice();
-                PayForLemons(player);
-                AddLemonsToInventory();
+                //PayForLemons(player, wallet);
+                //AddLemonsToInventory(player);
+                
             }
             else if (BuyChoice == "2")
             {
-                GetCupQuantity();
-                GetCupPurchasePrice();
-                PayForCups(player);
-                AddCupsToInventory();
+                GetCupQuantity(player);
+                //GetCupPurchasePrice();
+                //PayForCups(player, wallet);
+                //AddCupsToInventory(player);
             }
             else if (BuyChoice == "3")
             {
-                GetIceQuantity();
-                GetIcePurchasePrice();
-                PayForIce(player);
-                AddIceToInventory();
+                GetIceQuantity(player);
+                //GetIcePurchasePrice();
+                //PayForIce(player, wallet);
+                //AddIceToInventory(player);
             }
             else if (BuyChoice == "4")
             {
-                GetSugarQuantity();
-                GetSugarPurchasePrice();
-                PayForSugar();
-                AddSugarToInventory();
+                GetSugarQuantity(player);
+                //GetSugarPurchasePrice();
+                //PayForSugar(player, wallet);
+                //AddSugarToInventory(player);
             }
             else Console.WriteLine("That was not an option, try again");
-            BuyMenu();
+            //BuyMenu();
         }
+        
 
-
-        public double GetLemonQuantityAndCost()
+        public double GetLemonQuantityAndCost(Player player)
         {
             Lemon lemon = new Lemon();
             Console.WriteLine("How many lemons would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserLemonQuantity = Int32.Parse(UserInput);
             ItemCost = lemon.GetLemonCost() * UserLemonQuantity;
-            return ItemCost;
+            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+            Console.WriteLine("You bought "+UserLemonQuantity+" lemons and now have $"+player.CurrentMoney.Money);
+            player.CurrentInventory.InventoryLemons = UserLemonQuantity + player.CurrentInventory.InventoryLemons;
+            Console.WriteLine("You now have "+player.CurrentInventory.InventoryLemons+" in your inventory");
+            return player.CurrentMoney.Money;
         }
 
         //public double GetLemonPurchasePrice()
@@ -93,118 +98,143 @@ namespace LemonadeStand
         //    return ItemCost;
         //}
 
-        public void PayForLemons(Player player)
-        {
+        //public double PayForLemons(Player player, Wallet wallet)
+        //{
             
-            Wallet PlayerWallet = player.GetPlayerWallet();
-            PlayerWallet.CheckWallet(ItemCost);
-            PlayerWallet.BuyItem();
-        }
+        //    //Wallet PlayerWallet = player.GetPlayerWallet();
+        //    wallet.CheckWallet(ItemCost);
+        //    wallet.Money = wallet.Money - ItemCost;
+        //    //PlayerWallet.BuyItem();
+        //    return wallet.Money;
+        //}
 
 
 
 
-        public int GetCupQuantity()
+        public double GetCupQuantity(Player player)
         {
+            Cups cups = new Cups();
             Console.WriteLine("How many cups would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserCupQuantity = Int32.Parse(UserInput);
-            return UserCupQuantity;
+            ItemCost = cups.GetCupCost() * UserCupQuantity;
+            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+            Console.WriteLine("You bought " + UserCupQuantity + " cups and now have $" + player.CurrentMoney.Money);
+            player.CurrentInventory.InventoryCups = UserCupQuantity + player.CurrentInventory.InventoryCups;
+            Console.WriteLine("You now have " + player.CurrentInventory.InventoryCups + " in your inventory");
+            return player.CurrentMoney.Money;
         }
 
-        public double GetCupPurchasePrice()
+        //public double GetCupPurchasePrice()
+        //{
+        //    Cups cup = new Cups();
+        //    ItemCost = cup.GetCupCost() * UserCupQuantity;
+        //    Console.WriteLine("That will cost " +ItemCost);
+        //    return ItemCost;
+        //}
+
+        //public double PayForCups(Player player, Wallet wallet)
+        //{
+        //    //Wallet PlayerWallet = player.GetPlayerWallet();
+        //    wallet.CheckWallet(ItemCost);
+        //    wallet.Money = wallet.Money - ItemCost;
+        //    //PlayerWallet.BuyItem();
+        //    return wallet.Money;
+        //}
+
+
+        
+
+        public double GetIceQuantity(Player player)
         {
-            Cups cup = new Cups();
-            ItemCost = cup.GetCupCost() * UserCupQuantity;
-            Console.WriteLine("That will cost " +ItemCost);
-            return ItemCost;
-        }
-
-        public void PayForCups(Player player)
-        {
-            Wallet PlayerWallet = player.GetPlayerWallet();
-            PlayerWallet.CheckWallet(ItemCost);
-            PlayerWallet.BuyItem();
-        }
-
-
-
-
-        public int GetIceQuantity()
-        {
+            Ice ice = new Ice();
             Console.WriteLine("How much ice would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserIceQuantity = Int32.Parse(UserInput);
-            return UserIceQuantity;
-        }
-
-        public double GetIcePurchasePrice()
-        {
-            Ice ice = new Ice();
             ItemCost = ice.GetIceCost() * UserIceQuantity;
-            return ItemCost;
+            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+            Console.WriteLine("You bought " + UserIceQuantity + " ice and now have $" + player.CurrentMoney.Money);
+            player.CurrentInventory.InventoryIce = UserIceQuantity + player.CurrentInventory.InventoryIce;
+            Console.WriteLine("You now have " + player.CurrentInventory.InventoryIce + " in your inventory");
+            return player.CurrentMoney.Money;
         }
 
-        public void PayForIce(Player player)
+        //public double GetIcePurchasePrice()
+        //{
+        //    Ice ice = new Ice();
+        //    ItemCost = ice.GetIceCost() * UserIceQuantity;
+        //    return ItemCost;
+        //}
+
+       
+        public double PayForIce(Player player, Wallet wallet)
         {
-            
-            Wallet PlayerWallet = player.GetPlayerWallet();
-            PlayerWallet.CheckWallet(ItemCost);
-            PlayerWallet.BuyItem();
+            //Wallet PlayerWallet = player.GetPlayerWallet();
+            wallet.CheckWallet(ItemCost);
+            wallet.Money = wallet.Money - ItemCost;
+            //PlayerWallet.BuyItem();
+            return wallet.Money;
         }
 
 
 
-        public int GetSugarQuantity()
+        
+
+        public double GetSugarQuantity(Player player)
         {
+            Sugar sugar = new Sugar();
             Console.WriteLine("How much sugar would you like to buy? 1-100");
             string UserInput = Console.ReadLine();
             int UserSugarQuantity = Int32.Parse(UserInput);
-            return UserSugarQuantity;
-        }
-
-        public double GetSugarPurchasePrice()
-        {
-            Sugar sugar = new Sugar();
             ItemCost = sugar.GetSugarCost() * UserSugarQuantity;
-            return ItemCost;
+            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+            Console.WriteLine("You bought " + UserSugarQuantity + " sugar and now have $" + player.CurrentMoney.Money);
+            player.CurrentInventory.InventorySugar = UserSugarQuantity + player.CurrentInventory.InventorySugar;
+            Console.WriteLine("You now have " + player.CurrentInventory.InventorySugar + " in your inventory");
+            return player.CurrentMoney.Money;
         }
 
-        public void PayForSugar()
-        {
-            Player player = new Player();
-            Wallet PlayerWallet = player.GetPlayerWallet();
-            PlayerWallet.CheckWallet(ItemCost);
-            PlayerWallet.BuyItem();
-        }
+        //public double GetSugarPurchasePrice()
+        //{
+        //    Sugar sugar = new Sugar();
+        //    ItemCost = sugar.GetSugarCost() * UserSugarQuantity;
+        //    return ItemCost;
+        //}
 
-        public void AddLemonsToInventory()
-        {
-            Player player = new Player();
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            PlayerInventory.InventoryLemons += UserLemonQuantity;
-        }
+        //public void PayForSugar(Player player)
+        //{
 
-        public void AddIceToInventory()
-        {
-            Player player = new Player();
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            PlayerInventory.InventoryIce += UserLemonQuantity;
-        }
+        //    player.CurrentMoney = player.CurrentMoney - ItemCost;
+        //    PlayerWallet.BuyItem();
+        //}
 
-        public void AddSugarToInventory()
-        {
-            Player player = new Player();
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            PlayerInventory.InventorySugar += UserLemonQuantity;
-        }
+        //public void AddLemonsToInventory(Player player)
+        //{
 
-        public void AddCupsToInventory()
-        {
-            Player player = new Player();
-            Inventory PlayerInventory = player.GetPlayerInventory();
-            PlayerInventory.InventoryCups += UserLemonQuantity;
-        }
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    PlayerInventory.InventoryLemons += UserLemonQuantity;
+        //}
+
+        //public void AddIceToInventory(Player player)
+        //{
+
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    PlayerInventory.InventoryIce += UserLemonQuantity;
+        //}
+
+        //public void AddSugarToInventory(Player player)
+        //{
+
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    PlayerInventory.InventorySugar += UserLemonQuantity;
+        //}
+
+        //public void AddCupsToInventory(Player player)
+        //{
+
+        //    Inventory PlayerInventory = player.GetPlayerInventory();
+        //    PlayerInventory.InventoryCups += UserLemonQuantity;
+        //}
     }
 }
 
