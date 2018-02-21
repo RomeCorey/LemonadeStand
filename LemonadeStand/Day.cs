@@ -11,6 +11,8 @@ namespace LemonadeStand
         List<Customer> customers = new List<Customer>();
         Random rnd = new Random();
         Weather weather = new Weather();
+        Recipe recipe = new Recipe();
+        Player player;
         
         public int GetDay()
         {
@@ -34,78 +36,113 @@ namespace LemonadeStand
 
             if (weatherInfo == "Rain")
             {
-                
-                for (int i = 0; i > customers.Count; i++)
+
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy -= 10;                    
+                    customers.percentChanceToBuy -= 10;
                 }
             }
             else if (weatherInfo == "Overcast")
             {
 
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy -= 6;
+                    customers.percentChanceToBuy -= 6;
                 }
             }
             else if (weatherInfo == "Cloudy")
             {
-
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy -= 1;
+                    customers.percentChanceToBuy -= 1;
                 }
             }
             if (weatherInfo == "Sunny")
             {
 
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy += 10;
+                    customers.percentChanceToBuy += 10;
                 }
             }            
         }
 
-        public void PriceAffect()
+        public void WeatherPriceAffect()
         {
 
             string weatherInfo = weather.GetWeather();
 
             if (weatherInfo == "Rain")
             {
-
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy -= 10;
+                    customers.percentChanceToBuy -= 10;
                 }
+                
             }
             else if (weatherInfo == "Overcast")
             {
 
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy -= 6;
+                    customers.percentChanceToBuy -= 6;
                 }
             }
             else if (weatherInfo == "Cloudy")
             {
 
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy -= 1;
+                    customers.percentChanceToBuy -= 1;
                 }
             }
             if (weatherInfo == "Sunny")
             {
 
-                for (int i = 0; i > customers.Count; i++)
+                foreach (Customer customers in customers)
                 {
-                    customers[i].percentChanceToBuy += 10;
+                    customers.percentChanceToBuy += 10;
                 }
             }
         }
 
+        public void PriceEffect()
+        {
+            if (recipe.PricePerPitcher <= .30)
+            {
+                foreach (Customer customers in customers)
+                {
+                    customers.percentChanceToBuy -= 5;
+                }
+            }
+            else if (recipe.PricePerPitcher <= .40)
+            {
+                foreach (Customer customers in customers)
+                {
+                    customers.percentChanceToBuy += 5;
+                }
+            }
+            else if (recipe.PricePerPitcher <= .50)
+            {
+                foreach (Customer customers in customers)
+                {
+                    customers.percentChanceToBuy -= 5;
+                }
+            }
+        }
 
+        public void CustomerBuy()
+        {
+            foreach (Customer customers in customers)
+            {
+                if (customers.percentChanceToBuy >= 48)
+                {
+                    player.CurrentMoney.Money = recipe.PricePerPitcher + player.CurrentMoney.Money;
+                }
+            }
+        }
 
     }
-}
+
+    }
+

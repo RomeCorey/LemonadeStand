@@ -13,7 +13,7 @@ namespace LemonadeStand
         public int SugarPerPitcher;
         public int CupsPerPitcher;
         public int PitcherQuantity;
-        public int PricePerPitcher;
+        public double PricePerPitcher;
         public string RecipeOption;
 
         public string SetRecipeOptions(Player player)
@@ -51,6 +51,7 @@ namespace LemonadeStand
             else if (RecipeOption == "4")
             {
                 GetPricePerPitcher();
+                
             }
             else if (RecipeOption == "5")
             {
@@ -112,11 +113,13 @@ namespace LemonadeStand
             return FinalCups;
         }
 
-        public int GetPricePerPitcher()
+        
+
+        public double GetPricePerPitcher()
         {
-            Console.WriteLine("How much would you like to sell each cup for? I would suggest between $0.20 and $0.50");
+            Console.WriteLine("How much would you like to sell each cup for? You can set the price between $0.20 and $0.50");
             string UserInput = Console.ReadLine();
-            int PricePerPitcher = Int32.Parse(UserInput);
+            double PricePerPitcher = Convert.ToDouble(UserInput);
             return PricePerPitcher;
         }
 

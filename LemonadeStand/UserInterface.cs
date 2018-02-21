@@ -69,7 +69,7 @@ namespace LemonadeStand
                 store.BuyMenu();
                 store.BuyOptionsResult(player);
                 Menu();
-                // Complete store path
+                
             }
             else if (MenuChoice == "3")
             {
@@ -81,6 +81,14 @@ namespace LemonadeStand
             {
                 day.FillCustomers();
                 day.WeatherAffect();
+                day.PriceEffect();
+                day.CustomerBuy();
+                Console.WriteLine(player.CurrentMoney.Money);
+                Menu();
+            }
+            else{
+                Console.WriteLine("Please enter a valid option");
+                Menu();
             }
 
 
