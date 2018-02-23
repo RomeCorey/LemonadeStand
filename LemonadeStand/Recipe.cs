@@ -16,6 +16,11 @@ namespace LemonadeStand
         public double PricePerPitcher;
         public string RecipeOption;
 
+        public Recipe()
+        {
+            PricePerPitcher = 0;
+        }
+
         public string SetRecipeOptions(Player player)
         {
             Console.WriteLine("Select which part of the recipe you would like to change. \n Remember each pitcher makes 10 cups of lemonade.");
@@ -99,12 +104,40 @@ namespace LemonadeStand
             int TotalCups = player.CurrentInventory.RecipeCups * PitcherQuantity;
             int TotalSugar = player.CurrentInventory.RecipeSugar * PitcherQuantity;
             int TotalIce = player.CurrentInventory.RecipeIce * PitcherQuantity;
-            player.CurrentInventory.InventoryLemons = player.CurrentInventory.InventoryLemons - TotalLemons;
-            player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - TotalCups;
-            player.CurrentInventory.InventorySugar = player.CurrentInventory.InventorySugar - TotalSugar;
-            player.CurrentInventory.InventoryIce = player.CurrentInventory.InventoryIce - TotalIce;
+            if (TotalLemons > player.CurrentInventory.InventoryLemons)
+            {
+                Console.WriteLine("You do not have enough lemons");
+            }
+            else
+            {
+                player.CurrentInventory.InventoryLemons = player.CurrentInventory.InventoryLemons - TotalLemons;
+            }
+            if (TotalSugar > player.CurrentInventory.InventorySugar)
+            {
+                Console.WriteLine("You do not have enough Sugar");
+            }
+            else
+            {
+                player.CurrentInventory.InventorySugar = player.CurrentInventory.InventorySugar - TotalSugar;
+            }
+            if (TotalIce > player.CurrentInventory.InventoryIce )
+            {
+                Console.WriteLine("You do not have enough Ice");
+            }
+            else
+            {
+                player.CurrentInventory.InventoryIce = player.CurrentInventory.InventoryIce - TotalIce;
+            }          
             int FinalCups = PitcherQuantity * 10;
-            player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - FinalCups;
+            if (FinalCups > player.CurrentInventory.InventoryCups)
+            {
+                Console.WriteLine("You do not have enough cups");
+            }
+            else
+            {
+                player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - TotalCups;
+                player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - FinalCups;
+            }
             Console.WriteLine("You made " + FinalCups + " cups of lemonade total!");
             Console.WriteLine("You have " + player.CurrentInventory.InventoryLemons + " lemons left");
             Console.WriteLine("You have " + player.CurrentInventory.InventoryIce + " ice cubes left");
@@ -115,12 +148,11 @@ namespace LemonadeStand
 
         
 
-        public double GetPricePerPitcher()
+        public void GetPricePerPitcher()
         {
             Console.WriteLine("How much would you like to sell each cup for? You can set the price between $0.20 and $0.50");
             string UserInput = Console.ReadLine();
-            double PricePerPitcher = Convert.ToDouble(UserInput);
-            return PricePerPitcher;
+            PricePerPitcher = Convert.ToDouble(UserInput);
         }
 
         //public int GetDaysWorthOfLemons()

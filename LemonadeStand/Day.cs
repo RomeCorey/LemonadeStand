@@ -11,9 +11,13 @@ namespace LemonadeStand
         List<Customer> customers = new List<Customer>();
         Random rnd = new Random();
         Weather weather = new Weather();
-        Recipe recipe = new Recipe();
+        public Recipe recipe = new Recipe();
         Player player;
-        
+
+        public Day(Player player)
+        {
+            this.player = player;
+        }
         public int GetDay()
         {
             return CurrentDay;
@@ -135,9 +139,9 @@ namespace LemonadeStand
         {
             foreach (Customer customers in customers)
             {
-                if (customers.percentChanceToBuy >= 48)
+                if (customers.percentChanceToBuy >= 42)
                 {
-                    player.CurrentMoney.Money = recipe.PricePerPitcher + player.CurrentMoney.Money;
+                    player.CurrentMoney.Money = player.recipe.PricePerPitcher + player.CurrentMoney.Money;
                 }
             }
         }

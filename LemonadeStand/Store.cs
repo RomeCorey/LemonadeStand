@@ -83,11 +83,19 @@ namespace LemonadeStand
             string UserInput = Console.ReadLine();
             int UserLemonQuantity = Int32.Parse(UserInput);
             ItemCost = lemon.GetLemonCost() * UserLemonQuantity;
-            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-            Console.WriteLine("You bought "+UserLemonQuantity+" lemons and now have $"+player.CurrentMoney.Money);
-            player.CurrentInventory.InventoryLemons = UserLemonQuantity + player.CurrentInventory.InventoryLemons;
-            Console.WriteLine("You now have "+player.CurrentInventory.InventoryLemons+" in your inventory");
-            return player.CurrentMoney.Money;
+            if (ItemCost > player.CurrentMoney.Money)
+            {
+                player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+                Console.WriteLine("You bought " + UserLemonQuantity + " lemons and now have $" + player.CurrentMoney.Money);
+                player.CurrentInventory.InventoryLemons = UserLemonQuantity + player.CurrentInventory.InventoryLemons;
+                Console.WriteLine("You now have " + player.CurrentInventory.InventoryLemons + " in your inventory");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
+                return player.CurrentMoney.Money;
+
+            }
         }
 
         //public double GetLemonPurchasePrice()
@@ -118,11 +126,18 @@ namespace LemonadeStand
             string UserInput = Console.ReadLine();
             int UserCupQuantity = Int32.Parse(UserInput);
             ItemCost = cups.GetCupCost() * UserCupQuantity;
-            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-            Console.WriteLine("You bought " + UserCupQuantity + " cups and now have $" + player.CurrentMoney.Money);
-            player.CurrentInventory.InventoryCups = UserCupQuantity + player.CurrentInventory.InventoryCups;
-            Console.WriteLine("You now have " + player.CurrentInventory.InventoryCups + " in your inventory");
-            return player.CurrentMoney.Money;
+            if (ItemCost > player.CurrentMoney.Money)
+            {
+                player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+                Console.WriteLine("You bought " + UserCupQuantity + " cups and now have $" + player.CurrentMoney.Money);
+                player.CurrentInventory.InventoryCups = UserCupQuantity + player.CurrentInventory.InventoryCups;
+                Console.WriteLine("You now have " + player.CurrentInventory.InventoryCups + " in your inventory");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
+                return player.CurrentMoney.Money;
+            }
         }
 
         //public double GetCupPurchasePrice()
@@ -152,11 +167,18 @@ namespace LemonadeStand
             string UserInput = Console.ReadLine();
             int UserIceQuantity = Int32.Parse(UserInput);
             ItemCost = ice.GetIceCost() * UserIceQuantity;
-            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-            Console.WriteLine("You bought " + UserIceQuantity + " ice and now have $" + player.CurrentMoney.Money);
-            player.CurrentInventory.InventoryIce = UserIceQuantity + player.CurrentInventory.InventoryIce;
-            Console.WriteLine("You now have " + player.CurrentInventory.InventoryIce + " in your inventory");
-            return player.CurrentMoney.Money;
+            if (ItemCost > player.CurrentMoney.Money)
+            {
+                player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+                Console.WriteLine("You bought " + UserIceQuantity + " ice and now have $" + player.CurrentMoney.Money);
+                player.CurrentInventory.InventoryIce = UserIceQuantity + player.CurrentInventory.InventoryIce;
+                Console.WriteLine("You now have " + player.CurrentInventory.InventoryIce + " in your inventory");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
+                return player.CurrentMoney.Money;
+            }
         }
 
         //public double GetIcePurchasePrice()
@@ -187,11 +209,18 @@ namespace LemonadeStand
             string UserInput = Console.ReadLine();
             int UserSugarQuantity = Int32.Parse(UserInput);
             ItemCost = sugar.GetSugarCost() * UserSugarQuantity;
-            player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-            Console.WriteLine("You bought " + UserSugarQuantity + " sugar and now have $" + player.CurrentMoney.Money);
-            player.CurrentInventory.InventorySugar = UserSugarQuantity + player.CurrentInventory.InventorySugar;
-            Console.WriteLine("You now have " + player.CurrentInventory.InventorySugar + " in your inventory");
-            return player.CurrentMoney.Money;
+            if (ItemCost > player.CurrentMoney.Money)
+            {
+                player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
+                Console.WriteLine("You bought " + UserSugarQuantity + " sugar and now have $" + player.CurrentMoney.Money);
+                player.CurrentInventory.InventorySugar = UserSugarQuantity + player.CurrentInventory.InventorySugar;
+                Console.WriteLine("You now have " + player.CurrentInventory.InventorySugar + " in your inventory");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
+                return player.CurrentMoney.Money;
+            }
         }
 
         //public double GetSugarPurchasePrice()

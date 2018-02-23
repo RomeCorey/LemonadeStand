@@ -8,15 +8,19 @@ namespace LemonadeStand
 {
     public class UserInterface
     {
-        Player player = new Player();       
-        Day day = new Day();
-        Weather weather = new Weather();
-        Store Store = new Store();
+        Player player;
+        Day day;
+        Weather weather;
+        Store store;
         Random random = new Random();
-        Recipe recipe = new Recipe();
-        Store store = new Store();
-        Wallet wallet = new Wallet();
+        public UserInterface()
+        {
+            weather = new Weather();
+            store = new Store();
+            player = new Player();
+            day = new Day(player);
 
+        }
         public void StartGame()
         {
             Welcome();
@@ -73,8 +77,8 @@ namespace LemonadeStand
             }
             else if (MenuChoice == "3")
             {
-                recipe.SetRecipeOptions(player);
-                recipe.RecipePath(player, weather, store, recipe);
+                player.recipe.SetRecipeOptions(player);
+                player.recipe.RecipePath(player, weather, store, day.recipe);
                 Menu();
             }
             else if (MenuChoice == "4")
