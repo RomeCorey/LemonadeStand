@@ -47,7 +47,7 @@ namespace LemonadeStand
             Console.WriteLine("'2' - Buy Supplies from the store");
             Console.WriteLine("'3' - Change your price and recipe for your lemonade");
             Console.WriteLine("'4' - Play Week");
-            Console.WriteLine("You have $"+player.CurrentMoney.Money);
+            Console.WriteLine("You have $"+ Math.Round(player.CurrentMoney.Money, 2));
             string MenuChoice = Console.ReadLine();
 
             if (MenuChoice == "1")

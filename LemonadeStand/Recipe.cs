@@ -106,17 +106,26 @@ namespace LemonadeStand
             int TotalCups = player.CurrentInventory.RecipeCups * PitcherQuantity;
             int TotalSugar = player.CurrentInventory.RecipeSugar * PitcherQuantity;
             int TotalIce = player.CurrentInventory.RecipeIce * PitcherQuantity;
-            player.CurrentInventory.InventoryLemons = player.CurrentInventory.InventoryLemons - TotalLemons;
-            Console.WriteLine("You have " + player.CurrentInventory.InventoryLemons + " lemons left");
-            player.CurrentInventory.InventorySugar = player.CurrentInventory.InventorySugar - TotalSugar;
-            Console.WriteLine("You have " + player.CurrentInventory.InventorySugar + " sugar cubes left");
-            player.CurrentInventory.InventoryIce = player.CurrentInventory.InventoryIce - TotalIce;
-            Console.WriteLine("You have " + player.CurrentInventory.InventoryIce + " ice cubes left");
-            int FinalCups = PitcherQuantity * 10;
-            player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - TotalCups;
-            player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - FinalCups;
-            Console.WriteLine("You made " + FinalCups + " cups of lemonade total!");
-            return FinalCups;
+            if (TotalLemons > player.CurrentInventory.InventoryLemons || TotalIce > player.CurrentInventory.InventoryIce || TotalCups > player.CurrentInventory.InventoryCups || TotalSugar > player.CurrentInventory.InventorySugar)
+            {
+                Console.WriteLine("Your inventory does not hold enought to make that recipe, please choose another recipe, or buy more inventory!");
+                return FinalCups;
+            }
+            else
+            {
+                player.CurrentInventory.InventoryLemons = player.CurrentInventory.InventoryLemons - TotalLemons;
+                Console.WriteLine("You have " + player.CurrentInventory.InventoryLemons + " lemons left");
+                player.CurrentInventory.InventorySugar = player.CurrentInventory.InventorySugar - TotalSugar;
+                Console.WriteLine("You have " + player.CurrentInventory.InventorySugar + " sugar cubes left");
+                player.CurrentInventory.InventoryIce = player.CurrentInventory.InventoryIce - TotalIce;
+                Console.WriteLine("You have " + player.CurrentInventory.InventoryIce + " ice cubes left");
+                int FinalCups = PitcherQuantity * 10;
+                player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - TotalCups;
+                player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - FinalCups;
+                Console.WriteLine("You made " + FinalCups + " cups of lemonade total!");
+                return FinalCups;
+            }
+            
         }
 
         

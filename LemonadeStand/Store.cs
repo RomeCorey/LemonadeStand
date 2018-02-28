@@ -91,7 +91,7 @@ namespace LemonadeStand
             else
             {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-                Console.WriteLine("You bought " + UserLemonQuantity + " lemons and now have $" + player.CurrentMoney.Money);
+                Console.WriteLine("You bought " + UserLemonQuantity + " lemons and now have $" + Math.Round(player.CurrentMoney.Money, 2));
                 player.CurrentInventory.InventoryLemons = UserLemonQuantity + player.CurrentInventory.InventoryLemons;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventoryLemons + " in your inventory");
                 return player.CurrentMoney.Money;
@@ -134,7 +134,7 @@ namespace LemonadeStand
             else
             {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-                Console.WriteLine("You bought " + UserCupQuantity + " cups and now have $" + player.CurrentMoney.Money);
+                Console.WriteLine("You bought " + UserCupQuantity + " cups and now have $" + Math.Round(player.CurrentMoney.Money, 2));
                 player.CurrentInventory.InventoryCups = UserCupQuantity + player.CurrentInventory.InventoryCups;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventoryCups + " in your inventory");
                 return player.CurrentMoney.Money;
@@ -177,7 +177,7 @@ namespace LemonadeStand
             else
             {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-                Console.WriteLine("You bought " + UserIceQuantity + " ice and now have $" + player.CurrentMoney.Money);
+                Console.WriteLine("You bought " + UserIceQuantity + " ice and now have $" + Math.Round(player.CurrentMoney.Money, 2));
                 player.CurrentInventory.InventoryIce = UserIceQuantity + player.CurrentInventory.InventoryIce;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventoryIce + " in your inventory");
                 return player.CurrentMoney.Money;
@@ -221,7 +221,7 @@ namespace LemonadeStand
             else
             {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
-                Console.WriteLine("You bought " + UserSugarQuantity + " sugar and now have $" + player.CurrentMoney.Money);
+                Console.WriteLine("You bought " + UserSugarQuantity + " sugar and now have $" + Math.Round(player.CurrentMoney.Money, 2));
                 player.CurrentInventory.InventorySugar = UserSugarQuantity + player.CurrentInventory.InventorySugar;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventorySugar + " in your inventory");
                 return player.CurrentMoney.Money;
