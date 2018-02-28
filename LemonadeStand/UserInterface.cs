@@ -83,12 +83,14 @@ namespace LemonadeStand
             }
             else if (MenuChoice == "4")
             {
+                
                 for (int i = 0; i < 7; i++)
                 {
                     day.FillCustomers();
                     day.WeatherAffect();
                     day.PriceEffect();
                     day.CustomerBuy();
+                    day.RunningProfit();
                 }
                 Menu();
                 

@@ -15,12 +15,14 @@ namespace LemonadeStand
         Player player;
         double profitLoss;
         double totalProfit;
+        double runningTotal;
 
         public Day(Player player)
         {
             this.player = player;
             profitLoss = 0;
             totalProfit = 0;
+            runningTotal = 0;
         }
         public int GetDay()
         {
@@ -154,6 +156,12 @@ namespace LemonadeStand
             return profitLoss;
         }
 
+        public double RunningProfit()
+        {
+            runningTotal = profitLoss + runningTotal;
+            Console.WriteLine("Your running profit/loss is $"+ Math.Round(runningTotal, 2));
+            return runningTotal;
+        }
     }
 
     }
