@@ -85,16 +85,16 @@ namespace LemonadeStand
             ItemCost = lemon.GetLemonCost() * UserLemonQuantity;
             if (ItemCost > player.CurrentMoney.Money)
             {
+                Console.WriteLine("You do not have enough money");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
                 Console.WriteLine("You bought " + UserLemonQuantity + " lemons and now have $" + player.CurrentMoney.Money);
                 player.CurrentInventory.InventoryLemons = UserLemonQuantity + player.CurrentInventory.InventoryLemons;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventoryLemons + " in your inventory");
                 return player.CurrentMoney.Money;
-            }
-            else
-            {
-                return player.CurrentMoney.Money;
-
             }
         }
 
@@ -128,15 +128,17 @@ namespace LemonadeStand
             ItemCost = cups.GetCupCost() * UserCupQuantity;
             if (ItemCost > player.CurrentMoney.Money)
             {
+                Console.WriteLine("You do not have enough money");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
                 Console.WriteLine("You bought " + UserCupQuantity + " cups and now have $" + player.CurrentMoney.Money);
                 player.CurrentInventory.InventoryCups = UserCupQuantity + player.CurrentInventory.InventoryCups;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventoryCups + " in your inventory");
                 return player.CurrentMoney.Money;
-            }
-            else
-            {
-                return player.CurrentMoney.Money;
+                
             }
         }
 
@@ -169,15 +171,17 @@ namespace LemonadeStand
             ItemCost = ice.GetIceCost() * UserIceQuantity;
             if (ItemCost > player.CurrentMoney.Money)
             {
+                Console.WriteLine("You do not have enough money");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
                 Console.WriteLine("You bought " + UserIceQuantity + " ice and now have $" + player.CurrentMoney.Money);
                 player.CurrentInventory.InventoryIce = UserIceQuantity + player.CurrentInventory.InventoryIce;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventoryIce + " in your inventory");
                 return player.CurrentMoney.Money;
-            }
-            else
-            {
-                return player.CurrentMoney.Money;
+                
             }
         }
 
@@ -211,15 +215,17 @@ namespace LemonadeStand
             ItemCost = sugar.GetSugarCost() * UserSugarQuantity;
             if (ItemCost > player.CurrentMoney.Money)
             {
+                Console.WriteLine("You do not have enough money");
+                return player.CurrentMoney.Money;
+            }
+            else
+            {
                 player.CurrentMoney.Money = player.CurrentMoney.Money - ItemCost;
                 Console.WriteLine("You bought " + UserSugarQuantity + " sugar and now have $" + player.CurrentMoney.Money);
                 player.CurrentInventory.InventorySugar = UserSugarQuantity + player.CurrentInventory.InventorySugar;
                 Console.WriteLine("You now have " + player.CurrentInventory.InventorySugar + " in your inventory");
                 return player.CurrentMoney.Money;
-            }
-            else
-            {
-                return player.CurrentMoney.Money;
+                
             }
         }
 

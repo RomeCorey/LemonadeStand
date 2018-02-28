@@ -46,7 +46,7 @@ namespace LemonadeStand
             Console.WriteLine("'1' - Check the Weather Forecast for the week");
             Console.WriteLine("'2' - Buy Supplies from the store");
             Console.WriteLine("'3' - Change your price and recipe for your lemonade");
-            Console.WriteLine("'4' - Play Day");
+            Console.WriteLine("'4' - Play Week");
             Console.WriteLine("You have $"+player.CurrentMoney.Money);
             string MenuChoice = Console.ReadLine();
 
@@ -83,21 +83,22 @@ namespace LemonadeStand
             }
             else if (MenuChoice == "4")
             {
-                day.FillCustomers();
-                day.WeatherAffect();
-                day.PriceEffect();
-                day.CustomerBuy();
-                Console.WriteLine(player.CurrentMoney.Money);
+                for (int i = 0; i < 7; i++)
+                {
+                    day.FillCustomers();
+                    day.WeatherAffect();
+                    day.PriceEffect();
+                    day.CustomerBuy();
+                }
                 Menu();
+                
             }
             else{
                 Console.WriteLine("Please enter a valid option");
                 Menu();
             }
 
-
-
-
+            
         }
 
 

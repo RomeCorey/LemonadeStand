@@ -13,10 +13,14 @@ namespace LemonadeStand
         Weather weather = new Weather();
         public Recipe recipe = new Recipe();
         Player player;
+        double profitLoss;
+        double totalProfit;
 
         public Day(Player player)
         {
             this.player = player;
+            profitLoss = 0;
+            totalProfit = 0;
         }
         public int GetDay()
         {
@@ -135,8 +139,9 @@ namespace LemonadeStand
             }
         }
 
-        public void CustomerBuy()
+        public double CustomerBuy()
         {
+            profitLoss = player.CurrentMoney.Money;
             foreach (Customer customers in customers)
             {
                 if (customers.percentChanceToBuy >= 42)
@@ -144,6 +149,9 @@ namespace LemonadeStand
                     player.CurrentMoney.Money = player.recipe.PricePerPitcher + player.CurrentMoney.Money;
                 }
             }
+            profitLoss = player.CurrentMoney.Money - profitLoss;
+            Console.WriteLine("Your profit/loss total for the day is $ "+ Math.Round(profitLoss, 2));
+            return profitLoss;
         }
 
     }
