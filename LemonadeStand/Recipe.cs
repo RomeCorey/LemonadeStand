@@ -99,7 +99,7 @@ namespace LemonadeStand
 
         public int GetPitcherQuantity(Player player)
         {
-            Console.WriteLine("How many pitchers of lemonade would you like to make? Each pitcher makes 10 cups of lemonade!");
+            Console.WriteLine("How many pitchers of lemonade would you like to make? Each pitcher makes 25 cups of lemonade!");
             string UserInput = Console.ReadLine();
             int PitcherQuantity = Int32.Parse(UserInput);
             int TotalLemons = player.CurrentInventory.RecipeLemons * PitcherQuantity;
@@ -119,7 +119,7 @@ namespace LemonadeStand
                 Console.WriteLine("You have " + player.CurrentInventory.InventorySugar + " sugar cubes left");
                 player.CurrentInventory.InventoryIce = player.CurrentInventory.InventoryIce - TotalIce;
                 Console.WriteLine("You have " + player.CurrentInventory.InventoryIce + " ice cubes left");
-                int FinalCups = PitcherQuantity * 10;
+                int FinalCups = PitcherQuantity * 25;
                 player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - TotalCups;
                 player.CurrentInventory.InventoryCups = player.CurrentInventory.InventoryCups - FinalCups;
                 Console.WriteLine("You made " + FinalCups + " cups of lemonade total!");

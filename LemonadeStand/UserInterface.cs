@@ -13,6 +13,7 @@ namespace LemonadeStand
         Weather weather;
         Store store;
         Random random = new Random();
+        Recipe recipe;
         public UserInterface()
         {
             weather = new Weather();
@@ -27,12 +28,12 @@ namespace LemonadeStand
             Rules();
             Menu();
         }
-        public void Welcome()
+        private void Welcome()
         {
             Console.WriteLine("Welcome to your very own Lemonade Stand!");            
         }
 
-        public void Rules()
+        private void Rules()
         {
             Console.WriteLine("The goal is to make as much money you can over a 7 day period at a lemonade stand. You start with $20.00");
             Console.WriteLine("Customers will walk buy. Their chance of buying is affected by the price per cup that you set and the weather.");
@@ -40,7 +41,7 @@ namespace LemonadeStand
             Console.WriteLine("Then choose how much lemonade you want to make for the day.");
         }
         
-        public void Menu()
+        private void Menu()
         {
             Console.WriteLine("This is the Main Menu. Use the numbers to navagate from below:");
             Console.WriteLine("'1' - Check the Weather Forecast for the week");
@@ -52,8 +53,8 @@ namespace LemonadeStand
 
             if (MenuChoice == "1")
             {
-               string weatherInfo = weather.GetWeather();
-                Console.WriteLine("Monday - "+ weatherInfo);
+                string weatherInfo = weather.GetWeather();
+                Console.WriteLine("Monday - " + weatherInfo);
                 string weatherInfoDayTwo = weather.GetWeather();
                 Console.WriteLine("Tuesday - " + weatherInfoDayTwo);
                 string weatherInfoDayThree = weather.GetWeather();
@@ -73,7 +74,7 @@ namespace LemonadeStand
                 store.BuyMenu();
                 store.BuyOptionsResult(player);
                 Menu();
-                
+
             }
             else if (MenuChoice == "3")
             {
@@ -83,27 +84,32 @@ namespace LemonadeStand
             }
             else if (MenuChoice == "4")
             {
-                
-                for (int i = 0; i < 7; i++)
+                do
                 {
-                    day.FillCustomers();
-                    day.WeatherAffect();
-                    day.PriceEffect();
-                    day.CustomerBuy();
-                    day.RunningProfit();
+                    for (int i = 0; i < 7; i++)
+                    {
+                        day.FillCustomers();
+                        day.WeatherAffect();
+                        day.PriceEffect();
+                        day.CustomerBuy();
+                        day.RunningProfit();
+                    }
+                    Menu();
+
                 }
-                Menu();
-                
+                while (recipe.FinalCups > 0);
             }
-            else{
+
+
+
+            else
+            {
                 Console.WriteLine("Please enter a valid option");
                 Menu();
             }
 
             
         }
-
-
-
+        
     }
 }
