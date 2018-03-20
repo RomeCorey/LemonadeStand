@@ -132,9 +132,10 @@ namespace LemonadeStand
 
         public void GetPricePerPitcher()
         {
-            Console.WriteLine("How much would you like to sell each cup for? You can set the price between $0.20 and $0.50");
+            Console.WriteLine("How much would you like to sell each cup for? I suggest setting the price between $0.20 and $0.50");
             string UserInput = Console.ReadLine();
             PricePerPitcher = Convert.ToDouble(UserInput);
+            
         }
 
         //public int GetDaysWorthOfLemons()

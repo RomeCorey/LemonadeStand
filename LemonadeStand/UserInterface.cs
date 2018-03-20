@@ -12,8 +12,6 @@ namespace LemonadeStand
         Day day;
         Weather weather;
         Store store;
-        Random random = new Random();
-        Recipe recipe;
         public UserInterface()
         {
             weather = new Weather();
@@ -97,7 +95,7 @@ namespace LemonadeStand
                     Menu();
 
                 }
-                while (recipe.FinalCups > 0);
+                while (player.recipe.FinalCups > 0);
             }
             
             else

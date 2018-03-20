@@ -17,7 +17,6 @@ namespace LemonadeStand
             CurrentMoney = new Wallet();
             CurrentInventory = new Inventory();
             recipe = new Recipe();
-            
         }
         
         
