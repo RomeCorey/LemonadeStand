@@ -37,8 +37,8 @@ namespace LemonadeStand
         {
             Console.WriteLine("The goal is to make as much money you can over a 7 day period at a lemonade stand. You start with $20.00");
             Console.WriteLine("Customers will walk buy. Their chance of buying is affected by the price per cup that you set and the weather.");
-            Console.WriteLine("Each day you can buy the supplies you will need to make more lemonade.");
-            Console.WriteLine("Then choose how much lemonade you want to make for the day.");
+            Console.WriteLine("Each week you can buy the supplies you will need to make more lemonade.");
+            Console.WriteLine("Then choose how much lemonade you want to make for the week.");
         }
         
         private void Menu()
@@ -99,9 +99,7 @@ namespace LemonadeStand
                 }
                 while (recipe.FinalCups > 0);
             }
-
-
-
+            
             else
             {
                 Console.WriteLine("Please enter a valid option");

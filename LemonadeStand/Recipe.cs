@@ -30,7 +30,7 @@ namespace LemonadeStand
             Console.WriteLine("'2' Ice per pitcher.");
             Console.WriteLine("'3' Sugar per pitcher.");
             Console.WriteLine("'4' Price per pitcher.");
-            Console.WriteLine("'5' How many pitchers would you like to make for the day?");
+            Console.WriteLine("'5' How many pitchers would you like to make for the week?");
 
             return RecipeOption = Console.ReadLine();
         }
